@@ -1,0 +1,167 @@
+:root {
+  --colorTextos: #05f3f7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins";
+  min-height: 100vh;
+  background: lightblue;
+}
+
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+
+
+h2 {
+  text-align: center;
+  font-weight: 700;
+  color: #2196f3;
+}
+
+
+form {
+  background: #fff;
+  padding: 40px 0;
+  border-radius: 10px;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+
+.form { 
+  margin: 0 auto; 
+}
+
+
+form .grupo {
+  position: relative;
+  margin: 45px;
+}
+
+
+input {
+  background: none;
+  color: #c6c6c6;
+  font-size: 14px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--colorTextos);
+}
+
+
+input:focus {
+  outline: none;
+  color: #5e5d5d;
+}
+
+
+label {
+  font-size: 16px;
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  transition: 0.5s ease-in-out all;
+  pointer-events: none;
+}
+
+
+
+input:focus~label,
+input:valid~label {
+  top: -14px;
+  font-size: 12px;
+  color: #2196f3;
+}
+
+
+.barra {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+
+.barra::before {
+  content: "";
+  height: 2px;
+  width: 0%;
+  bottom: 0;
+  position: absolute;
+  transition: 0.3s ease width;
+  left: 0;
+}
+
+
+input:focus~.barra::before {
+  width: 100%;
+}
+
+
+.boton-input {
+  font-family: "Poppins";
+  background: #2196f3;
+  border: none;
+  display: block;
+  width: 50%;
+  margin: 10px auto;
+  color: #fff;
+  height: 40px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+
+
+footer {
+  color: blue;
+  height: 10vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+footer .derechos {
+  grid-column: 2 / 3;
+  text-align: center;
+}
+
+footer .redes {
+  display: flex;
+  gap: 0.5rem;
+  justify-content:center;
+  
+}
+
+footer ul {
+  list-style: none;
+}
+
+
+footer p {
+  font-size: 18px;
+}
+
+
+@media screen and (max-width:480px) {
+  
+  form {
+    width: 80%;
+  }
+  
+}
