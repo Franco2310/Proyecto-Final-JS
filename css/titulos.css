@@ -101,21 +101,21 @@ h2 {
 .item-1 {
     z-index: 2;
     opacity: 1;
-    background: url(imagenes/Logo-CA.webp);
+    background: url(/imagenes/Logo-CA.webp);
     background-size: cover;
     background-position: center;
 }
 
   
 .item-2 {
-    background: url(imagenes/Foto-Messi-Copa.webp);
+    background: url(/imagenes/Foto-Messi-Copa.webp);
     background-size: cover;
     background-position: center;
 }
 
 
 .item-3 {
-    background: url(imagenes/Cuadro-CA.webp);
+    background: url(/imagenes/Cuadro-CA.webp);
     background-size: cover;
     background-position: center;
 }
@@ -142,21 +142,21 @@ h2 {
 .item-4 {
     z-index: 2;
     opacity: 1;
-    background: url(imagenes/Logo-Finalissima.webp);
+    background: url(/imagenes/Logo-Finalissima.webp);
     background-size: cover;
     background-position: center;
 }
 
   
 .item-5 {
-    background: url(imagenes/Foto-Messi-Finalissima.webp);
+    background: url(/imagenes/Foto-Messi-Finalissima.webp);
     background-size: cover;
     background-position: center;
 }
 
 
 .item-6 {
-    background: url(imagenes/Festejo-Finalissima.webp);
+    background: url(/imagenes/Festejo-Finalissima.webp);
     background-size: cover;
 }
   
@@ -181,20 +181,20 @@ h2 {
 .item-7 {
     z-index: 2;
     opacity: 1;
-    background: url(imagenes/Logo-Qatar-2022.webp);
+    background: url(/imagenes/Logo-Qatar-2022.webp);
     background-size: cover;
     background-position: center;
 }
 
   
 .item-8 {
-    background: url(imagenes/Foto-Messi-Mundial.webp);
+    background: url(/imagenes/Foto-Messi-Mundial.webp);
     background-size: cover;
 }
 
 
 .item-9 {
-    background: url(imagenes/Cuadro-Mundial.webp);
+    background: url(/imagenes/Cuadro-Mundial.webp);
     background-size: cover;
     background-position: center;
 }
