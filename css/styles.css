@@ -45,7 +45,7 @@ h2 {
 
 
 .botones {
-    display: flex; 
+    display: grid; 
     justify-content: center;
     align-items: center;
 }
