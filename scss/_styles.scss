@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+    color: blue;
+    padding: 1.2rem;
+    font-size: 32px;
+}
+
+
+h2 {
+    text-align: center;
+    color: blue;
+    padding: 1.2rem;
+    margin-top: 1rem;
+}
+
+
+.parrafos {
+    color: blue;
+    text-align: justify;
+    padding: 1rem;
+    width: 94%;
+    display: block;
+    margin: 0 auto;
+    font-size: large;
+}
+
+
+img {
+    width: 50%;
+    display: block;
+    margin: 1rem auto;
+    padding: 1rem;
+    height: 50%;
+}
+
+@media screen and (max-width: 620px) {
+
+    img {
+        width: 70%;
+        display: block;
+        margin: 1rem auto;
+        padding: 1rem;
+        height: 50%;
+    }
+}
+
+
+

@@ -1,0 +1,53 @@
+footer {
+    color: blue;
+    height: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+footer .derechos {
+    grid-column: 2 / 3;
+    text-align: center;
+}
+
+footer .redes {
+    display: flex;
+    gap: 0.5rem;
+    justify-content:center;
+    
+}
+
+footer ul {
+    list-style: none;
+}
+
+
+.footer-p {
+    font-size: 18px;
+}
+
+
+@media screen and (max-width: 620px) {
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+    }
+}
+
+
+@media screen and (max-width:480px) {
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+    }
+    
+}

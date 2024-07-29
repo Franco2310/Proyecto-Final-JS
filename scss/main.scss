@@ -1,0 +1,25 @@
+body {
+    font-family: "Poppins";
+    min-height: 100vh;
+    background: lightblue;
+}
+
+@import "_header.scss";
+@import "_footer.scss";
+
+
+
+/*-----Pagina Index-----*/
+@import "_styles.scss";
+
+/*-----Pagina Titulos-----*/
+@import "_titulos.scss";
+
+/*-----Pagina Galería-----*/
+@import "_galeria.scss";
+
+/*-----Pagina Contactos-----*/
+@import "_contactos.scss";
+
+/*-----Pagina Iniciar Sesión-----*/
+@import "_iniciar-sesion.scss";

@@ -1,24 +1,7 @@
-:root {
-    --colorTextos: #05f3f7;
-  }
-  
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-  
-body {
-    font-family: "Poppins";
-    min-height: 100vh;
-    background: lightblue;
-}
-  
-  
 h2 {
     text-align: center;
     font-weight: 700;
-    color: #2196f3;
+    color: blue;
 }
   
   
@@ -120,47 +103,25 @@ input:focus~.barra::before {
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
-  
-  
-footer {
-    color: blue;
-    height: 10vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-    align-items: center;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
+
+
+@media screen and (max-width: 620px) {
+
+    img {
+        width: 70%;
+        display: block;
+        margin: 1rem auto;
+        padding: 1rem;
+        height: 50%;
+    }
 }
-  
-footer .derechos {
-    grid-column: 2 / 3;
-    text-align: center;
-}
-  
-footer .redes {
-    display: flex;
-    gap: 0.5rem;
-    justify-content:center;
-    
-}
-  
-footer ul {
-    list-style: none;
-}
-  
-  
-footer p {
-    font-size: 18px;
-}
-  
+
   
 @media screen and (max-width:480px) {
     
     form {
       width: 70%;
     }
-    
 }
 
 
