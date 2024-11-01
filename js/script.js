@@ -1,100 +1,170 @@
 let cart = [];
-const cartItemsElement = document.getElementById("cart-items");
-const cartCountElement = document.getElementById("cart-count");
-const cartTotalElement = document.getElementById("cart-total");
-const cartMenuElement = document.getElementById("cart-menu");
+let cartCount = 0;
 
-// Cargar el carrito desde localStorage
-function loadCart() {
-    const storedCart = localStorage.getItem("cart");
-    if (storedCart) {
-        cart = JSON.parse(storedCart);
-        updateCart();
-    }
+// Función para mostrar/ocultar el menú
+function toggleMenu() {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("open-sidebar");
 }
 
-// Guardar el carrito en localStorage
-function saveCart() {
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function addToCart(name, price, image) {
-    const item = { name, price, image };
-    cart.push(item);
-    saveCart();
-    updateCart();
-}
-
-function updateCart() {
-    cartItemsElement.innerHTML = "";
-    let total = 0;
-
-    cart.forEach((item) => {
-        total += item.price;
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div class="cart-item-details">
-                <p>${item.name}</p>
-                <p class="cart-item-price">$${item.price.toFixed(2)}</p>
-            </div>
-            <button onclick="removeFromCart('${item.name}')">X</button>
-        `;
-        cartItemsElement.appendChild(li);
-    });
-
-    cartCountElement.textContent = cart.length;
-    cartTotalElement.textContent = `Total: $${total.toFixed(2)}`; // Añadido backticks para que funcione correctamente
-}
-
-function removeFromCart(name) {
-    cart = cart.filter(item => item.name !== name); // Usamos filter para crear un nuevo array sin el item eliminado
-    saveCart();
-    updateCart();
-}
-
+// Función para mostrar/ocultar el carrito
 function toggleCart() {
-    cartMenuElement.style.display = cartMenuElement.style.display === "none" ? "flex" : "none"; // Alternar la visibilidad del carrito
+    const cartMenu = document.getElementById('cart-menu');
+    cartMenu.style.display = cartMenu.style.display === 'none' || cartMenu.style.display === '' ? 'flex' : 'none';
+    updateCart();
 }
 
+// Filtrar productos según la categoría
 function filterProducts(category) {
     const products = document.querySelectorAll(".product");
     products.forEach(product => {
         if (category === 'todos' || product.dataset.category === category) {
-            product.style.display = 'block'; // Mostrar el producto si coincide con la categoría
+            product.style.display = 'block';
         } else {
-            product.style.display = 'none'; // Ocultar el producto si no coincide
+            product.style.display = 'none';
         }
     });
 }
 
-function searchProducts(query) {
-    const products = document.querySelectorAll(".product");
+// Función para cargar productos desde un archivo JSON
+async function loadProducts() {
+    try {
+        const response = await fetch('products.json'); // Ruta al archivo JSON
+        const products = await response.json();
+        displayProducts(products);
+    } catch (error) {
+        console.error('Error al cargar los productos:', error);
+    }
+}
+
+// Función para mostrar productos en el DOM
+function displayProducts(products) {
+    const productContainer = document.getElementById('product-container');
     products.forEach(product => {
-        const name = product.querySelector("p").textContent.toLowerCase();
-        if (name.includes(query.toLowerCase())) {
-            product.style.display = 'block'; // Mostrar si la búsqueda coincide
-        } else {
-            product.style.display = 'none'; // Ocultar si no coincide
-        }
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('product');
+
+        productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" />
+            <h3>${product.name}</h3>
+            <p>$${product.price}</p>
+            <button onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">Añadir al carrito</button>
+        `;
+        productContainer.appendChild(productDiv);
     });
 }
 
+// Función para añadir productos al carrito
+function addToCart(productName, productPrice, productImage) {
+    cart.push({ name: productName, price: productPrice, image: productImage });
+    cartCount++;
+    updateCartCount();
+    localStorage.setItem('cart', JSON.stringify(cart)); // Guardar el carrito en localStorage
+    
+    // Notificación usando Toastify
+    Toastify({
+        text: `${productName} ha sido añadido al carrito.`,
+        duration: 3000,
+        gravity: "top",
+        position: 'center', // Centrar en la parte superior
+        backgroundColor: "#1e90ff",
+    }).showToast();
+}
+
+// Función para actualizar el contador del carrito
+function updateCartCount() {
+    const cartCountElement = document.getElementById('cart-count');
+    cartCountElement.textContent = cartCount;
+}
+
+// Función para actualizar la visualización del carrito
+function updateCart() {
+    const cartItemsElement = document.getElementById('cart-items');
+    const cartTotalElement = document.getElementById('cart-total');
+    cartItemsElement.innerHTML = ''; // Limpiar la lista existente
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="cart-item-details">
+                <p>${item.name}</p>
+                <p class="cart-item-price">$${item.price}</p>
+            </div>
+            <button onclick="removeFromCart(${index})">Eliminar</button>
+        `;
+        cartItemsElement.appendChild(li);
+        total += item.price;
+    });
+
+    cartTotalElement.textContent = `Total: $${total}`;
+}
+
+// Función para eliminar productos del carrito
+function removeFromCart(index) {
+    const item = cart[index];
+    cart.splice(index, 1);
+    cartCount--;
+    updateCartCount();
+    updateCart();
+    localStorage.setItem('cart', JSON.stringify(cart)); // Actualizar localStorage
+    
+    // Notificación usando Toastify
+    Toastify({
+        text: `${item.name} ha sido eliminado del carrito.`,
+        duration: 3000,
+        gravity: "top",
+        position: 'center', // Centrar en la parte superior
+        backgroundColor: "#ff4757",
+    }).showToast();
+}
+
+// Función de pago (simulación)
 function checkout() {
     if (cart.length === 0) {
-        alert("Error: Debes añadir artículos al carrito para poder comprar."); // Mensaje de error si el carrito está vacío
-        return; // Detener la función si el carrito está vacío
+        Toastify({
+            text: 'Tu carrito está vacío.',
+            duration: 3000,
+            gravity: "top",
+            position: 'center', // Centrar en la parte superior
+            backgroundColor: "#ffbb33",
+        }).showToast();
+    } else {
+        Toastify({
+            text: 'Gracias por tu compra. ¡Volveremos pronto!',
+            duration: 3000,
+            gravity: "top",
+            position: 'center', // Centrar en la parte superior
+            backgroundColor: "#1e90ff",
+        }).showToast();
+        cart = []; // Vaciar el carrito
+        cartCount = 0; // Restablecer el contador
+        updateCartCount();
+        updateCart(); // Actualizar la visualización del carrito
+        toggleCart(); // Cerrar el carrito después de la compra
+        localStorage.removeItem('cart'); // Limpiar localStorage
     }
-    
-    alert("Gracias por tu compra!"); // Mensaje de agradecimiento
-    cart = []; // Limpiar el carrito
-    saveCart();
-    updateCart();
 }
 
-// Eventos de carga
-window.onload = function() {
-    loadCart(); // Cargar el carrito al iniciar la página
-};
-
-
+// Inicialización de eventos al cargar el documento
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeCart = document.getElementById('close-cart');
+    
+    // Cargar productos desde el JSON al inicio
+    loadProducts();
+    
+    // Cargar el carrito desde localStorage
+    const storedCart = JSON.parse(localStorage.getItem('cart'));
+    if (storedCart) {
+        cart = storedCart;
+        cartCount = cart.length;
+        updateCartCount();
+        updateCart();
+    }
+    
+    // Configuración de eventos para el menú y el carrito
+    menuToggle.addEventListener('click', toggleMenu);
+    closeCart.addEventListener('click', toggleCart);
+});

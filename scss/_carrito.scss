@@ -1,37 +1,13 @@
-/* Estilos generales */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #1e90ff;
-    color: white;
-}
-
-.cart-icon {
-    font-size: 24px;
-    cursor: pointer;
-    position: relative;
-}
-
-#cart-count {
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 4px 8px;
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    font-size: 14px;
-}
-
 /* Sección del carrito */
+.cart-icon {
+    font-size: 1.5rem; /* Tamaño del ícono */
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 2rem; /* Ajusta este valor para colocarlo más abajo */
+    right: 1rem;
+}
+
 .cart-menu {
     position: fixed;
     right: 0;
@@ -47,13 +23,21 @@ header {
     transition: 0.3s ease;
 }
 
-.cart-menu h2 {
+.cart-header {
+    display: flex; /* Usar flexbox para el encabezado */
+    justify-content: space-between; /* Espacio entre el título y la "X" */
+    align-items: center; /* Alinear verticalmente */
+}
+
+.cart-header h2 {
     font-size: 22px;
-    margin-bottom: 20px;
+    margin: 0; /* Eliminar margen para alinear correctamente */
     color: #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+}
+
+#close-cart {
+    font-size: 22px; /* Ajusta el tamaño según sea necesario */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
 }
 
 #cart-items {
@@ -123,19 +107,12 @@ header {
 }
 
 /* Otros estilos del carrito */
-.cart-menu {
-    padding: 20px;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 #cart-total {
     font-size: 20px;
     font-weight: bold;
     color: #333;
     text-align: right;
-    margin-bottom: 20px;
+    margin-bottom: 5px; /* Reduce el margen para que el botón quede más arriba */
 }
 
 button {
@@ -151,6 +128,8 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s ease;
+    margin-top: 10px; /* Añade un margen superior al botón para separarlo del total */
+    margin-bottom: 30px;
 }
 
 .cart-menu button:hover {
@@ -199,7 +178,6 @@ nav {
     display: flex;
     justify-content: center; /* Centrar los botones de filtrado */
     gap: 10px; /* Espacio entre los botones */
-    margin: 20px 0; /* Espacio superior e inferior */
 }
 
 nav button {
@@ -210,8 +188,9 @@ nav button {
     color: white;
     cursor: pointer;
     transition: 0.3s ease;
+    font-size: medium;
 }
 
 nav button:hover {
-    background-color:#1c86ee;
+    background-color: #1c86ee;
 }

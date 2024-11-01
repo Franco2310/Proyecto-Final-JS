@@ -1,95 +1,81 @@
-.header{
+/* Header General */
+.header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 85px;
-    padding: 5px;
-    font-size: large;
+    padding: 1rem;
+    background-color: transparent; /* Sin fondo */
+    color: white;
 }
 
-.header .logo{
-    cursor: pointer;
-}
-
-.header .logo img{
-    height: 100px;
-    transition: all 0.3s;
-}
-
-.header .logo img:hover{
-    transform: scale(1.2);
-}
-
-.header .nav-links{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-.header .nav-links li{
-    display: inline-block;
-    padding: 0 20px;    
-}
-
-.header .nav-links li:hover{
-    transform: scale(1.1);
-}
-
-.header .nav-links a{
-    color: purple;
-    text-decoration: none;    
-}
-
-.header .nav-links li a:hover{
-    color: blue;
-}
-
-.header .btn button{
-    font-weight: 700;
-    color: purple;
-    padding: 9px 25px;
-    background: #eceff1;
+/* Estilos del menú de hamburguesa */
+.menu-toggle {
+    font-size: 2rem;
+    background: none;
     border: none;
-    border-radius: 50px;
+    color: white;
     cursor: pointer;
-    transition: all 0.3s ease 0s;
-    font-size: smaller;
 }
 
-.header .btn button:hover{
-    background-color: #e2f1f8;
-    color: blue;
-    transform: scale(1.1);
+/* Navegación principal centrada */
+.nav-links {
+    display: flex;
+    flex-direction: column; /* Mostrar como columnas */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        text-align: center;
+        
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
 }
 
+/* Estilo del sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 250px;
+    background-color: #444;
+    color: white;
+    overflow-x: hidden;
+    transition: 0.3s;
+    z-index: 10;
 
-@media screen and (max-width: 705px) {
-
-    .botones {
-        display: flex;
-        flex-direction: row;
-        padding: 2px;
+    ul {
+        list-style: none;
     }
-    
-    .nav-links {
-        display: flex;
+
+    li {
+        padding: 1rem;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+    .close-btn {
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 }
 
-@media screen and (max-width: 685px) {
-
-    .botones {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        margin: none;
-    }
-
-    img {
-        width: 80%;
-    }
+.open-sidebar {
+    left: 0;
 }

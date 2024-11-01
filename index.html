@@ -10,25 +10,19 @@
 </head>
 <body>
 
-    <header class="header">
-
-      <div class="logo">
-          <img src="./imagenes/La-Scaloneta.png" alt="Logo de la marca">
-      </div>
-      <nav>
-        <ul class="nav-links">
-              <li><a href="./index.html">Inicio</a></li>
-              <li><a href="./pages/titulos.html">Títulos</a></li>
-              <li><a href="./pages/galeria.html">Galería</a></li>
-              <li><a href="./pages/nosotros.html">Nosotros</a></li>
-        </ul>            
-      </nav>
-
-      <section class="botones">
-        <a class="btn" href="./pages/carrito.html"><button>Carrito</button></a>
-      </section>
-
-    </header>
+  <header class="header">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav class="sidebar" id="sidebar">
+      <button class="close-btn" onclick="toggleMenu()">✖</button>
+      <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="pages/titulos.html">Títulos</a></li>
+            <li><a href="pages/galeria.html">Galería</a></li>
+            <li><a href="pages/nosotros.html">Nosotros</a></li>
+            <li><a href="pages/carrito.html">Carrito</a></li>
+      </ul>            
+    </nav>
+  </header>
     
 
     <section>
@@ -121,5 +115,6 @@
       </div>
   </footer>
   
+  <script src="./js/script.js"></script>
 </body>
 </html>

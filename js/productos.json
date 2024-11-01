@@ -1,0 +1,64 @@
+{
+    "productos": [
+        {
+            "categoria": "camisetas",
+            "items": [
+                {
+                    "nombre": "Camiseta Argentina 2023",
+                    "precio": 3000,
+                    "imagen": "camiseta1.jpg"
+                },
+                {
+                    "nombre": "Camiseta Argentina 2022",
+                    "precio": 2800,
+                    "imagen": "camiseta2.jpg"
+                },
+                {
+                    "nombre": "Camiseta Argentina Retro",
+                    "precio": 3200,
+                    "imagen": "camiseta3.jpg"
+                }
+            ]
+        },
+        {
+            "categoria": "shorts",
+            "items": [
+                {
+                    "nombre": "Short Argentina 2023",
+                    "precio": 1500,
+                    "imagen": "short1.jpg"
+                },
+                {
+                    "nombre": "Short Argentina 2022",
+                    "precio": 1400,
+                    "imagen": "short2.jpg"
+                },
+                {
+                    "nombre": "Short Argentina Training",
+                    "precio": 1600,
+                    "imagen": "short3.jpg"
+                }
+            ]
+        },
+        {
+            "categoria": "camperas",
+            "items": [
+                {
+                    "nombre": "Campera Argentina 2023",
+                    "precio": 5000,
+                    "imagen": "campera1.jpg"
+                },
+                {
+                    "nombre": "Campera Argentina Invierno",
+                    "precio": 5500,
+                    "imagen": "campera2.jpg"
+                },
+                {
+                    "nombre": "Campera Argentina Clásica",
+                    "precio": 6000,
+                    "imagen": "campera3.jpg"
+                }
+            ]
+        }
+    ]
+}

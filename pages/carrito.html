@@ -1,21 +1,37 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/carrito.css">
-    <title>Carrito de Compras - Selección Argentina</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="./imagenes/La-Scaloneta.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.css">
+    <title>Carrito</title>
 </head>
 <body>
-    <header>
-        <h1>Carrito de Compras</h1>
+    <header class="header">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav class="sidebar" id="sidebar">
+            <button class="close-btn" onclick="toggleMenu()">✖</button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="/pages/titulos.html">Títulos</a></li>
+                <li><a href="/pages/galeria.html">Galería</a></li>
+                <li><a href="/pages/nosotros.html">Nosotros</a></li>
+                <li><a href="/pages/carrito.html">Carrito</a></li>
+            </ul>            
+        </nav>
+    </header>
+
+    <!-- Bloque del carrito -->
+    <div class="cart-container">
         <div class="cart-icon" onclick="toggleCart()">
             🛒
             <span id="cart-count">0</span>
         </div>
-    </header>
+    </div>
 
-    <nav>
+    <nav class="filter-nav">
         <button onclick="filterProducts('camisetas')">Camisetas</button>
         <button onclick="filterProducts('shorts')">Shorts</button>
         <button onclick="filterProducts('camperas')">Camperas</button>
@@ -24,70 +40,57 @@
 
     <div id="products">
         <div class="product" data-category="camisetas">
-            <img src="camiseta1.jpg" alt="Camiseta 1">
-            <p>Camiseta Argentina 2023</p>
-            <p>$3000</p>
-            <button onclick="addToCart('Camiseta Argentina 2023', 3000, 'camiseta1.jpg')">🛒</button>
+            <img src="/imagenes/Camiseta-2023.png" alt="Camiseta 1">
+            <button onclick="addToCart('Camiseta Argentina 2023', 3000, '/imagenes/Camiseta-2023.png')">🛒</button>
         </div>
         <div class="product" data-category="camisetas">
-            <img src="camiseta2.jpg" alt="Camiseta 2">
-            <p>Camiseta Argentina 2022</p>
-            <p>$2800</p>
-            <button onclick="addToCart('Camiseta Argentina 2022', 2800, 'camiseta2.jpg')">🛒</button>
+            <img src="/imagenes/Camiseta-2022.png" alt="Camiseta 2">
+            <button onclick="addToCart('Camiseta Argentina 2022', 2800, '/imagenes/Camiseta-2022.png')">🛒</button>
         </div>
         <div class="product" data-category="camisetas">
-            <img src="camiseta3.jpg" alt="Camiseta 3">
-            <p>Camiseta Argentina Retro</p>
-            <p>$3200</p>
-            <button onclick="addToCart('Camiseta Argentina Retro', 3200, 'camiseta3.jpg')">🛒</button>
+            <img src="/imagenes/Camiseta-Retro.png" alt="Camiseta 3">
+            <button onclick="addToCart('Camiseta Argentina Retro', 3200, '/imagenes/Camiseta-Retro.png')">🛒</button>
         </div>
 
         <div class="product" data-category="shorts">
-            <img src="short1.jpg" alt="Short 1">
-            <p>Short Argentina 2023</p>
-            <p>$1500</p>
-            <button onclick="addToCart('Short Argentina 2023', 1500, 'short1.jpg')">🛒</button>
+            <img src="/imagenes/Short-2023.png" alt="Short 1">
+            <button onclick="addToCart('Short Argentina 2023', 1500, '/imagenes/Short-2023.png')">🛒</button>
         </div>
         <div class="product" data-category="shorts">
-            <img src="short2.jpg" alt="Short 2">
-            <p>Short Argentina 2022</p>
-            <p>$1400</p>
-            <button onclick="addToCart('Short Argentina 2022', 1400, 'short2.jpg')">🛒</button>
+            <img src="/imagenes/Short-2022.png" alt="Short 2">
+            <button onclick="addToCart('Short Argentina 2022', 1400, '/imagenes/Short-2022.png')">🛒</button>
         </div>
         <div class="product" data-category="shorts">
-            <img src="short3.jpg" alt="Short 3">
-            <p>Short Argentina Training</p>
-            <p>$1600</p>
-            <button onclick="addToCart('Short Argentina Training', 1600, 'short3.jpg')">🛒</button>
+            <img src="/imagenes/Short-Retro.png" alt="Short 3">
+            <button onclick="addToCart('Short Argentina Training', 1600, '/imagenes/Short-Retro.png')">🛒</button>
         </div>
 
         <div class="product" data-category="camperas">
-            <img src="campera1.jpg" alt="Campera 1">
-            <p>Campera Argentina 2023</p>
-            <p>$5000</p>
-            <button onclick="addToCart('Campera Argentina 2023', 5000, 'campera1.jpg')">🛒</button>
+            <img src="/imagenes/Campera-2023.png" alt="Campera 1">
+            <button onclick="addToCart('Campera Argentina 2023', 5000, '/imagenes/Campera-2023.png')">🛒</button>
         </div>
         <div class="product" data-category="camperas">
-            <img src="campera2.jpg" alt="Campera 2">
-            <p>Campera Argentina Invierno</p>
-            <p>$5500</p>
-            <button onclick="addToCart('Campera Argentina Invierno', 5500, 'campera2.jpg')">🛒</button>
+            <img src="/imagenes/Campera-Invierno.png" alt="Campera 2">
+            <button onclick="addToCart('Campera Argentina Invierno', 5500, '/imagenes/Campera-Invierno.png')">🛒</button>
         </div>
         <div class="product" data-category="camperas">
-            <img src="campera3.jpg" alt="Campera 3">
-            <p>Campera Argentina Clásica</p>
-            <p>$6000</p>
-            <button onclick="addToCart('Campera Argentina Clásica', 6000, 'campera3.jpg')">🛒</button>
+            <img src="/imagenes/Campera-Clasica.png" alt="Campera 3">
+            <button onclick="addToCart('Campera Argentina Clásica', 6000, '/imagenes/Campera-Clasica.png')">🛒</button>
         </div>
     </div>
 
     <div class="cart-menu" id="cart-menu">
-        <h2>Tu Carrito <span id="close-cart" onclick="toggleCart()" style="cursor: pointer;">❌</span></h2>
+        <div class="cart-header">
+            <h2>Tu carrito</h2>
+            <span id="close-cart" onclick="toggleCart()" class="close-btn">❌</span>
+        </div>
         <ul id="cart-items"></ul>
         <p id="cart-total">Total: $0</p>
         <button onclick="checkout()">Pagar</button>
     </div>
-
-    <script src="../js/script.js"></script>
+    
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.js"></script>
 </body>
 </html>
+
